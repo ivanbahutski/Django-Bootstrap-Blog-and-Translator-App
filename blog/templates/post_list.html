@@ -3,8 +3,16 @@
 {%block title%} Posts {%endblock%}
 
 {%block content%}
-    {%for post in post_list%}
-        <a href="{% url 'blog:post_details' post.slug %}"><h1>{{post.title}}</h1></a>
-        <p>Author: {{post.author}}</p>
-    {%endfor%}
+    <div class="container">
+        {%for post in post_list%}
+        <div class="card m-3">
+            <div class="card-body">
+                <h1 class="card-title">{{post.title}}</h1>
+                <p class="card-text">{{post.content | slice:"100"}}</p>
+                <p class="card-text">Author: {{post.author | title}}</p>
+                <a href="{% url 'blog:post_details' post.slug %}" class="btn btn-primary">Read more</a>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
 {%endblock%}

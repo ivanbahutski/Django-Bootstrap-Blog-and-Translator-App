@@ -19,3 +19,8 @@ class PostList(generic.ListView):
 class PostDetails(generic.DetailView):
     model = Post
     template_name = "post_details.html"
+
+
+class DraftPostList(generic.ListView):
+    queryset = Post.objects.filter(status=0).order_by('-date_created')
+    template_name = "posts_draft_list.html"
