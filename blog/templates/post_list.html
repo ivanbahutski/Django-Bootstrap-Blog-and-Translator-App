@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{%block title%} Posts {%endblock%}
+
+{%block content%}
+    {%for post in post_list%}
+        <h1><a href="{% url 'blog:post_details' slug}">{{post.title}}</a></h1>
+        <p>Author: {{post.author}}</p>
+    {%endfor%}
+{%endblock%}
