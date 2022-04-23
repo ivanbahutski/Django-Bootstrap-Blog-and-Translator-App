@@ -4,7 +4,7 @@
 
 {%block content%}
     {%for post in post_list%}
-        <h1><a href="{% url 'blog:post_details' slug}">{{post.title}}</a></h1>
+        <a href="{% url 'blog:post_details' post.slug %}"><h1>{{post.title}}</h1></a>
         <p>Author: {{post.author}}</p>
     {%endfor%}
 {%endblock%}
